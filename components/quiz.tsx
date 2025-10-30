@@ -21,7 +21,7 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
     answers: [],
     score: 0,
     isCompleted: false,
-    timeRemaining: timeLimit * 60, // Convert minutes to seconds
+    timeRemaining: timeLimit * 60,
     isStarted: true,
   })
 
@@ -29,7 +29,6 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
   const [hasCheckedAnswer, setHasCheckedAnswer] = useState(false)
   const [showExplanation, setShowExplanation] = useState(false)
 
-  // Timer effect
   useEffect(() => {
     if (quizState.isStarted && !quizState.isCompleted && quizState.timeRemaining > 0) {
       const timer = setInterval(() => {
@@ -41,7 +40,6 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
 
       return () => clearInterval(timer)
     } else if (quizState.timeRemaining === 0 && !quizState.isCompleted) {
-      // Time's up - auto complete
       const timeUsed = timeLimit * 60 - quizState.timeRemaining
       setQuizState((prev) => ({ ...prev, isCompleted: true }))
       onComplete(quizState.score, timeUsed)
@@ -52,7 +50,6 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
   const progress = ((quizState.currentQuestion + 1) / questions.length) * 100
   const isCorrect = selectedAnswer === currentQuestion.correctAnswer
 
-  // Format time display
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
@@ -80,7 +77,6 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
     const newScore = isAnswerCorrect ? quizState.score + 1 : quizState.score
 
     if (quizState.currentQuestion === questions.length - 1) {
-      // Quiz completed
       const timeUsed = timeLimit * 60 - quizState.timeRemaining
       setQuizState({
         ...quizState,
@@ -90,7 +86,6 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
       })
       onComplete(newScore, timeUsed)
     } else {
-      // Next question
       setQuizState({
         ...quizState,
         currentQuestion: quizState.currentQuestion + 1,
@@ -177,14 +172,14 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
       {/* Main Question Card - Centered and Sized to Fit Screen */}
       <div className="flex-1 flex items-center justify-center">
         <Card className="w-full max-w-4xl shadow-lg">
-          {/* Question Image */}
           {currentQuestion.image && (
-            <div className="relative h-48 w-full">
+            <div className="relative h-80 w-full bg-gray-100 dark:bg-gray-800">
               <Image
                 src={currentQuestion.image || "/placeholder.svg"}
-                alt="Question context"
+                alt="Road sign or driving scenario"
                 fill
-                className="object-cover rounded-t-lg"
+                className="object-contain p-4"
+                priority
               />
             </div>
           )}
@@ -200,13 +195,11 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
                 let buttonClass = "w-full p-4 text-left rounded-lg border-2 transition-all duration-200 "
 
                 if (!hasCheckedAnswer) {
-                  // Before checking answer
                   buttonClass +=
                     selectedAnswer === index
                       ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-md"
                       : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm"
                 } else {
-                  // After checking answer
                   if (index === currentQuestion.correctAnswer) {
                     buttonClass +=
                       "border-green-500 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200"
