@@ -94,148 +94,6 @@ export const provinces: Province[] = [
   },
 ]
 
-const getAlbertaQuestions = (): Question[] => [
-  {
-    id: 1,
-    question: "What is the speed limit in most urban areas in Alberta unless otherwise posted?",
-    options: ["40 km/h", "50 km/h", "60 km/h", "70 km/h"],
-    correctAnswer: 1,
-    explanation: "The default speed limit in urban areas in Alberta is 50 km/h unless signs indicate otherwise.",
-    image: "/alberta-calgary-skyline.jpg",
-  },
-  {
-    id: 2,
-    question: "What action must you take when you see this sign?",
-    options: ["Complete stop required", "Slow down and proceed", "Yield to oncoming traffic", "Construction zone"],
-    correctAnswer: 0,
-    explanation:
-      "A stop sign requires you to come to a complete stop at the stop line or before entering the intersection.",
-    image: "/signs/stop-sign.jpg",
-  },
-  {
-    id: 3,
-    question: "In Alberta, when must you have your headlights on?",
-    options: [
-      "Only at night",
-      "30 minutes before sunset to 30 minutes after sunrise",
-      "Only in bad weather",
-      "Only when visibility is less than 150 metres",
-    ],
-    correctAnswer: 1,
-    explanation:
-      "Alberta law requires headlights from 30 minutes before sunset to 30 minutes after sunrise, and when visibility is reduced to 150 metres or less.",
-    image: "/alberta-jasper-mountains.jpg",
-  },
-  {
-    id: 4,
-    question: "What is the maximum speed limit on most Alberta highways?",
-    options: ["100 km/h", "110 km/h", "120 km/h", "130 km/h"],
-    correctAnswer: 1,
-    explanation:
-      "The maximum speed limit on most Alberta highways is 110 km/h, though some sections may have different posted limits.",
-    image: "/alberta-canmore-mountains.jpg",
-  },
-  {
-    id: 5,
-    question: "What is the maximum speed allowed where you see this sign?",
-    options: ["60 km/h", "Minimum 60 km/h", "Highway 60", "60 metres ahead"],
-    correctAnswer: 0,
-    explanation: "This is a regulatory speed limit sign indicating the maximum speed allowed is 60 km/h.",
-    image: "/signs/speed-limit-60.jpg",
-  },
-  {
-    id: 6,
-    question: "In Alberta, what is the legal blood alcohol limit for fully licensed drivers?",
-    options: ["0.05%", "0.08%", "0.10%", "0.00%"],
-    correctAnswer: 1,
-    explanation:
-      "The legal blood alcohol limit for fully licensed drivers in Alberta is 0.08%. However, administrative penalties begin at 0.05%.",
-    image: "/alberta-edmonton-river.jpg",
-  },
-  {
-    id: 7,
-    question: "When driving in Alberta winter conditions, what is the minimum tread depth required for tires?",
-    options: ["1.6 mm", "3.5 mm", "5.0 mm", "6.0 mm"],
-    correctAnswer: 1,
-    explanation:
-      "Alberta requires a minimum tread depth of 3.5 mm for winter driving conditions to ensure adequate traction on snow and ice.",
-    image: "/alberta-banff-lake-louise.jpg",
-  },
-  {
-    id: 8,
-    question: "What does this regulatory sign prohibit?",
-    options: ["No entry", "Do not enter", "No parking anytime", "No stopping"],
-    correctAnswer: 2,
-    explanation: "This sign indicates that parking is prohibited at all times in this area.",
-    image: "/signs/no-parking-sign.jpg",
-  },
-  {
-    id: 9,
-    question: "What does a flashing green light mean at an Alberta intersection?",
-    options: [
-      "Proceed with caution",
-      "You have the right of way to go straight or turn",
-      "Pedestrian crossing ahead",
-      "School zone active",
-    ],
-    correctAnswer: 1,
-    explanation:
-      "A flashing green light in Alberta means you have the right of way to proceed straight through or turn left, but you must still yield to pedestrians.",
-    image: "/alberta-calgary-skyline.jpg",
-  },
-  {
-    id: 10,
-    question: "When you approach this sign, what must you do?",
-    options: ["Stop completely", "Slow down and give way to traffic", "Merge with traffic", "Turn right only"],
-    correctAnswer: 1,
-    explanation:
-      "A yield sign requires you to slow down and give the right of way to other traffic and pedestrians before proceeding.",
-    image: "/signs/yield-sign.jpg",
-  },
-  {
-    id: 11,
-    question: "This sign warns you about what type of zone?",
-    options: ["School zone ahead", "Playground zone", "Children playing area", "Reduced speed zone"],
-    correctAnswer: 0,
-    explanation:
-      "This sign warns drivers that they are entering a school zone where reduced speeds apply during posted hours.",
-    image: "/signs/school-zone-sign.jpg",
-  },
-  {
-    id: 12,
-    question: "What is the penalty for distracted driving (using handheld devices) in Alberta?",
-    options: ["$100 fine", "$300 fine and 3 demerits", "$500 fine", "$1000 fine and license suspension"],
-    correctAnswer: 1,
-    explanation: "Distracted driving in Alberta results in a $300 fine and 3 demerit points for the first offense.",
-    image: "/alberta-jasper-mountains.jpg",
-  },
-  {
-    id: 13,
-    question: "What does this sign indicate to drivers?",
-    options: ["Pedestrian crossing ahead", "School crossing", "Playground zone", "Hospital zone"],
-    correctAnswer: 0,
-    explanation:
-      "This sign indicates a designated pedestrian crossing area ahead where drivers must yield to pedestrians.",
-    image: "/signs/pedestrian-crossing-sign.jpg",
-  },
-  {
-    id: 14,
-    question: "What maneuver is prohibited by this sign?",
-    options: ["Right turns", "Left turns", "U-turns", "Straight through"],
-    correctAnswer: 1,
-    explanation: "This sign prohibits left turns at this intersection.",
-    image: "/signs/no-left-turn-sign.jpg",
-  },
-  {
-    id: 15,
-    question: "In Alberta, how much space should you leave when passing a cyclist?",
-    options: ["0.5 metres", "1 metre", "1.5 metres", "2 metres"],
-    correctAnswer: 1,
-    explanation: "Alberta law requires drivers to leave at least 1 metre of space when passing a cyclist.",
-    image: "/alberta-banff-lake-louise.jpg",
-  },
-]
-
 const getSaskatchewanQuestions = (): Question[] => [
   {
     id: 1,
@@ -247,7 +105,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 2,
-    question: "What action must you take when you see this sign?",
+    question: "What action must you take when you see this regulatory sign?",
     options: ["Complete stop required", "Slow down and proceed", "Yield to oncoming traffic", "Construction zone"],
     correctAnswer: 0,
     explanation:
@@ -264,7 +122,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 4,
-    question: "When you approach this sign, what must you do?",
+    question: "When you approach this regulatory sign, what must you do?",
     options: ["Stop completely", "Slow down and give way to traffic", "Merge with traffic", "Turn right only"],
     correctAnswer: 1,
     explanation:
@@ -287,7 +145,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 6,
-    question: "What is the maximum speed allowed where you see this sign?",
+    question: "What is the maximum speed allowed where you see this regulatory sign?",
     options: ["60 km/h", "Minimum 60 km/h", "Highway 60", "60 metres ahead"],
     correctAnswer: 0,
     explanation: "This is a regulatory speed limit sign indicating the maximum speed allowed is 60 km/h.",
@@ -330,7 +188,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 11,
-    question: "This sign warns you about what type of zone?",
+    question: "This warning sign alerts you to what type of zone?",
     options: ["School zone ahead", "Playground zone", "Children playing area", "Reduced speed zone"],
     correctAnswer: 0,
     explanation:
@@ -353,7 +211,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 13,
-    question: "What does this sign indicate to drivers?",
+    question: "What does this warning sign indicate to drivers?",
     options: ["Pedestrian crossing ahead", "School crossing", "Playground zone", "Hospital zone"],
     correctAnswer: 0,
     explanation:
@@ -380,7 +238,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 16,
-    question: "What maneuver is prohibited by this sign?",
+    question: "What maneuver is prohibited by this regulatory sign?",
     options: ["Right turns", "Left turns", "U-turns", "Straight through"],
     correctAnswer: 1,
     explanation: "This sign prohibits left turns at this intersection.",
@@ -468,7 +326,7 @@ const getSaskatchewanQuestions = (): Question[] => [
   },
   {
     id: 25,
-    question: "What does this traffic sign indicate?",
+    question: "What does this warning sign indicate?",
     options: ["Lane ends", "Merge left ahead", "Construction zone", "Passing lane"],
     correctAnswer: 1,
     explanation: "This sign indicates that traffic must merge to the left due to lane closure or construction ahead.",
@@ -525,6 +383,240 @@ const getSaskatchewanQuestions = (): Question[] => [
       "You should check blind spots before changing lanes, turning, backing up, or any time you're changing your vehicle's position.",
     image: "/saskatchewan-saskatoon-river.jpg",
   },
+  {
+    id: 31,
+    question: "What does this warning sign indicate is ahead?",
+    options: ["Stop sign ahead", "Yield sign ahead", "Traffic light ahead", "School zone ahead"],
+    correctAnswer: 0,
+    explanation:
+      "This yellow diamond warning sign alerts drivers that a stop sign is ahead, allowing time to prepare to stop.",
+    image: "/signs/stop-ahead-warning.jpg",
+  },
+  {
+    id: 32,
+    question: "This warning sign tells you that:",
+    options: [
+      "Two-way traffic ahead",
+      "Divided highway ends",
+      "Oncoming traffic in your lane",
+      "Both A and B are correct",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "This sign warns that a divided highway is ending and you'll be entering a two-way traffic section where oncoming vehicles will share the roadway.",
+    image: "/signs/two-way-traffic.jpg",
+  },
+  {
+    id: 33,
+    question: "What does this warning sign indicate about the road ahead?",
+    options: ["Narrow bridge", "Road narrows", "Single lane ahead", "Construction zone"],
+    correctAnswer: 0,
+    explanation:
+      "This sign warns drivers that a narrow bridge is ahead where the road width is reduced. Slow down and be prepared to yield.",
+    image: "/signs/narrow-bridge.jpg",
+  },
+  {
+    id: 34,
+    question: "This warning sign alerts you to:",
+    options: ["Sharp turn ahead", "Winding road ahead", "Curved road", "Slippery conditions"],
+    correctAnswer: 1,
+    explanation:
+      "This sign warns of a series of curves or winding road ahead. Reduce speed and stay alert for changing road direction.",
+    image: "/signs/winding-road.jpg",
+  },
+  {
+    id: 35,
+    question: "What maneuver is prohibited by this regulatory sign?",
+    options: ["Left turns", "Right turns", "U-turns", "Straight through"],
+    correctAnswer: 1,
+    explanation: "This sign prohibits right turns at this intersection.",
+    image: "/signs/no-right-turn.jpg",
+  },
+  {
+    id: 36,
+    question: "What does this regulatory sign prohibit?",
+    options: ["Left turns", "Right turns", "U-turns", "All turns"],
+    correctAnswer: 2,
+    explanation: "This sign prohibits U-turns at this location.",
+    image: "/signs/no-u-turn.jpg",
+  },
+  {
+    id: 37,
+    question: "This regulatory sign indicates:",
+    options: ["One-way traffic to the right", "Turn right only", "Keep right", "Right lane ends"],
+    correctAnswer: 0,
+    explanation: "This ONE WAY sign indicates that traffic flows only in the direction of the arrow (to the right).",
+    image: "/signs/one-way-right.jpg",
+  },
+  {
+    id: 38,
+    question: "What does this regulatory sign require you to do?",
+    options: ["Turn right", "Keep to the right of the obstacle", "Right lane only", "Merge right"],
+    correctAnswer: 1,
+    explanation:
+      "This sign requires drivers to keep to the right side of a traffic island, median, or obstacle in the road.",
+    image: "/signs/keep-right.jpg",
+  },
+  {
+    id: 39,
+    question: "This warning sign indicates what type of intersection ahead?",
+    options: ["Four-way stop", "Roundabout", "Traffic circle", "Rotary"],
+    correctAnswer: 1,
+    explanation:
+      "This sign warns that a roundabout is ahead. Slow down, yield to traffic already in the circle, and proceed counterclockwise.",
+    image: "/signs/roundabout-ahead.jpg",
+  },
+  {
+    id: 40,
+    question: "What does this warning sign indicate about the road ahead?",
+    options: ["Steep uphill", "Steep downhill grade", "Mountain area", "Truck route"],
+    correctAnswer: 1,
+    explanation:
+      "This sign warns of a steep downhill grade ahead. Use lower gears and avoid riding your brakes to prevent brake failure.",
+    image: "/signs/steep-hill.jpg",
+  },
+]
+
+const getAlbertaQuestions = (): Question[] => [
+  {
+    id: 1,
+    question: "What is the speed limit in most urban areas in Alberta unless otherwise posted?",
+    options: ["40 km/h", "50 km/h", "60 km/h", "70 km/h"],
+    correctAnswer: 1,
+    explanation: "The default speed limit in urban areas in Alberta is 50 km/h unless signs indicate otherwise.",
+    image: "/alberta-calgary-skyline.jpg",
+  },
+  {
+    id: 2,
+    question: "What action must you take when you see this regulatory sign?",
+    options: ["Complete stop required", "Slow down and proceed", "Yield to oncoming traffic", "Construction zone"],
+    correctAnswer: 0,
+    explanation:
+      "A stop sign requires you to come to a complete stop at the stop line or before entering the intersection.",
+    image: "/signs/stop-sign.jpg",
+  },
+  {
+    id: 3,
+    question: "In Alberta, when must you have your headlights on?",
+    options: [
+      "Only at night",
+      "30 minutes before sunset to 30 minutes after sunrise",
+      "Only in bad weather",
+      "Only when visibility is less than 150 metres",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Alberta law requires headlights from 30 minutes before sunset to 30 minutes after sunrise, and when visibility is reduced to 150 metres or less.",
+    image: "/alberta-jasper-mountains.jpg",
+  },
+  {
+    id: 4,
+    question: "What is the maximum speed limit on most Alberta highways?",
+    options: ["100 km/h", "110 km/h", "120 km/h", "130 km/h"],
+    correctAnswer: 1,
+    explanation:
+      "The maximum speed limit on most Alberta highways is 110 km/h, though some sections may have different posted limits.",
+    image: "/alberta-canmore-mountains.jpg",
+  },
+  {
+    id: 5,
+    question: "What is the maximum speed allowed where you see this regulatory sign?",
+    options: ["60 km/h", "Minimum 60 km/h", "Highway 60", "60 metres ahead"],
+    correctAnswer: 0,
+    explanation: "This is a regulatory speed limit sign indicating the maximum speed allowed is 60 km/h.",
+    image: "/signs/speed-limit-60.jpg",
+  },
+  {
+    id: 6,
+    question: "In Alberta, what is the legal blood alcohol limit for fully licensed drivers?",
+    options: ["0.05%", "0.08%", "0.10%", "0.00%"],
+    correctAnswer: 1,
+    explanation:
+      "The legal blood alcohol limit for fully licensed drivers in Alberta is 0.08%. However, administrative penalties begin at 0.05%.",
+    image: "/alberta-edmonton-river.jpg",
+  },
+  {
+    id: 7,
+    question: "When driving in Alberta winter conditions, what is the minimum tread depth required for tires?",
+    options: ["1.6 mm", "3.5 mm", "5.0 mm", "6.0 mm"],
+    correctAnswer: 1,
+    explanation:
+      "Alberta requires a minimum tread depth of 3.5 mm for winter driving conditions to ensure adequate traction on snow and ice.",
+    image: "/alberta-banff-lake-louise.jpg",
+  },
+  {
+    id: 8,
+    question: "What does this regulatory sign prohibit?",
+    options: ["No entry", "Do not enter", "No parking anytime", "No stopping"],
+    correctAnswer: 2,
+    explanation: "This sign indicates that parking is prohibited at all times in this area.",
+    image: "/signs/no-parking-sign.jpg",
+  },
+  {
+    id: 9,
+    question: "What does a flashing green light mean at an Alberta intersection?",
+    options: [
+      "Proceed with caution",
+      "You have the right of way to go straight or turn",
+      "Pedestrian crossing ahead",
+      "School zone active",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "A flashing green light in Alberta means you have the right of way to proceed straight through or turn left, but you must still yield to pedestrians.",
+    image: "/alberta-calgary-skyline.jpg",
+  },
+  {
+    id: 10,
+    question: "When you approach this regulatory sign, what must you do?",
+    options: ["Stop completely", "Slow down and give way to traffic", "Merge with traffic", "Turn right only"],
+    correctAnswer: 1,
+    explanation:
+      "A yield sign requires you to slow down and give the right of way to other traffic and pedestrians before proceeding.",
+    image: "/signs/yield-sign.jpg",
+  },
+  {
+    id: 11,
+    question: "This warning sign alerts you to what type of zone?",
+    options: ["School zone ahead", "Playground zone", "Children playing area", "Reduced speed zone"],
+    correctAnswer: 0,
+    explanation:
+      "This sign warns drivers that they are entering a school zone where reduced speeds apply during posted hours.",
+    image: "/signs/school-zone-sign.jpg",
+  },
+  {
+    id: 12,
+    question: "What is the penalty for distracted driving (using handheld devices) in Alberta?",
+    options: ["$100 fine", "$300 fine and 3 demerits", "$500 fine", "$1000 fine and license suspension"],
+    correctAnswer: 1,
+    explanation: "Distracted driving in Alberta results in a $300 fine and 3 demerit points for the first offense.",
+    image: "/alberta-jasper-mountains.jpg",
+  },
+  {
+    id: 13,
+    question: "What does this warning sign indicate to drivers?",
+    options: ["Pedestrian crossing ahead", "School crossing", "Playground zone", "Hospital zone"],
+    correctAnswer: 0,
+    explanation:
+      "This sign indicates a designated pedestrian crossing area ahead where drivers must yield to pedestrians.",
+    image: "/signs/pedestrian-crossing-sign.jpg",
+  },
+  {
+    id: 14,
+    question: "What maneuver is prohibited by this regulatory sign?",
+    options: ["Right turns", "Left turns", "U-turns", "Straight through"],
+    correctAnswer: 1,
+    explanation: "This sign prohibits left turns at this intersection.",
+    image: "/signs/no-left-turn-sign.jpg",
+  },
+  {
+    id: 15,
+    question: "In Alberta, how much space should you leave when passing a cyclist?",
+    options: ["0.5 metres", "1 metre", "1.5 metres", "2 metres"],
+    correctAnswer: 1,
+    explanation: "Alberta law requires drivers to leave at least 1 metre of space when passing a cyclist.",
+    image: "/alberta-banff-lake-louise.jpg",
+  },
 ]
 
 const getOntarioQuestions = (): Question[] => [
@@ -537,7 +629,7 @@ const getOntarioQuestions = (): Question[] => [
   },
   {
     id: 2,
-    question: "What action must you take when you see this sign?",
+    question: "What action must you take when you see this regulatory sign?",
     options: ["Complete stop required", "Slow down and proceed", "Yield to oncoming traffic", "Construction zone"],
     correctAnswer: 0,
     explanation:
@@ -553,7 +645,7 @@ const getOntarioQuestions = (): Question[] => [
   },
   {
     id: 4,
-    question: "When you approach this sign, what must you do?",
+    question: "When you approach this regulatory sign, what must you do?",
     options: ["Stop completely", "Slow down and give way to traffic", "Merge with traffic", "Turn right only"],
     correctAnswer: 1,
     explanation: "A yield sign requires you to slow down and give the right of way to other traffic and pedestrians.",
@@ -561,7 +653,7 @@ const getOntarioQuestions = (): Question[] => [
   },
   {
     id: 5,
-    question: "What is the maximum speed allowed where you see this sign?",
+    question: "What is the maximum speed allowed where you see this regulatory sign?",
     options: ["60 km/h", "Minimum 60 km/h", "Highway 60", "60 metres ahead"],
     correctAnswer: 0,
     explanation: "This is a regulatory speed limit sign indicating the maximum speed allowed is 60 km/h.",
@@ -610,7 +702,7 @@ const getOntarioQuestions = (): Question[] => [
   },
   {
     id: 11,
-    question: "What maneuver is prohibited by this sign?",
+    question: "What maneuver is prohibited by this regulatory sign?",
     options: ["Right turns", "Left turns", "U-turns", "Straight through"],
     correctAnswer: 1,
     explanation: "This sign prohibits left turns at this intersection.",
@@ -664,7 +756,7 @@ const getBritishColumbiaQuestions = (): Question[] => [
   },
   {
     id: 2,
-    question: "What action must you take when you see this sign?",
+    question: "What action must you take when you see this regulatory sign?",
     options: ["Complete stop required", "Slow down and proceed", "Yield to oncoming traffic", "Construction zone"],
     correctAnswer: 0,
     explanation:
@@ -680,7 +772,7 @@ const getBritishColumbiaQuestions = (): Question[] => [
   },
   {
     id: 4,
-    question: "When you approach this sign, what must you do?",
+    question: "When you approach this regulatory sign, what must you do?",
     options: ["Stop completely", "Slow down and give way to traffic", "Merge with traffic", "Turn right only"],
     correctAnswer: 1,
     explanation: "A yield sign requires you to slow down and give the right of way to other traffic and pedestrians.",
@@ -688,7 +780,7 @@ const getBritishColumbiaQuestions = (): Question[] => [
   },
   {
     id: 5,
-    question: "What is the maximum speed allowed where you see this sign?",
+    question: "What is the maximum speed allowed where you see this regulatory sign?",
     options: ["60 km/h", "Minimum 60 km/h", "Highway 60", "60 metres ahead"],
     correctAnswer: 0,
     explanation: "This is a regulatory speed limit sign indicating the maximum speed allowed is 60 km/h.",
@@ -736,7 +828,7 @@ const getBritishColumbiaQuestions = (): Question[] => [
   },
   {
     id: 11,
-    question: "What maneuver is prohibited by this sign?",
+    question: "What maneuver is prohibited by this regulatory sign?",
     options: ["Right turns", "Left turns", "U-turns", "Straight through"],
     correctAnswer: 1,
     explanation: "This sign prohibits left turns at this intersection.",
@@ -790,7 +882,7 @@ const getGenericProvinceQuestions = (provinceName: string): Question[] => [
   },
   {
     id: 2,
-    question: "What action must you take when you see this sign?",
+    question: "What action must you take when you see this regulatory sign?",
     options: ["Complete stop required", "Slow down and proceed", "Yield to oncoming traffic", "Construction zone"],
     correctAnswer: 0,
     explanation:
@@ -818,7 +910,7 @@ const getGenericProvinceQuestions = (provinceName: string): Question[] => [
   },
   {
     id: 5,
-    question: "What is the maximum speed allowed where you see this sign?",
+    question: "What is the maximum speed allowed where you see this regulatory sign?",
     options: ["60 km/h", "Minimum 60 km/h", "Highway 60", "60 metres ahead"],
     correctAnswer: 0,
     explanation: "This is a regulatory speed limit sign indicating the maximum speed allowed is 60 km/h.",
