@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/contexts/theme-context"
 import Navigation from "@/components/navigation"
@@ -51,6 +52,7 @@ export default function RootLayout({
           <Navigation />
           <main className="min-h-screen">{children}</main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
