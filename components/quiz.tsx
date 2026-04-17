@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import type { Question, QuizState } from "@/lib/types"
+import { buildMissedQuestionRecords, buildQuizProgressSession, saveQuizProgressSession } from "@/lib/progress"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -41,6 +42,7 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
       return () => clearInterval(timer)
     } else if (quizState.timeRemaining === 0 && !quizState.isCompleted) {
       const timeUsed = timeLimit * 60 - quizState.timeRemaining
+      persistQuizProgress(quizState.answers, quizState.score, timeUsed)
       setQuizState((prev) => ({ ...prev, isCompleted: true }))
       onComplete(quizState.score, timeUsed)
     }
@@ -69,6 +71,19 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
     setShowExplanation(true)
   }
 
+  const persistQuizProgress = (answers: number[], score: number, timeUsed: number) => {
+    const missedQuestions = buildMissedQuestionRecords(questions, answers)
+    const session = buildQuizProgressSession({
+      province: provinceName,
+      score,
+      total: questions.length,
+      timeUsed,
+      missedQuestions,
+    })
+
+    saveQuizProgressSession(session)
+  }
+
   const handleNext = () => {
     if (selectedAnswer === null) return
 
@@ -78,6 +93,7 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
 
     if (quizState.currentQuestion === questions.length - 1) {
       const timeUsed = timeLimit * 60 - quizState.timeRemaining
+      persistQuizProgress(newAnswers, newScore, timeUsed)
       setQuizState({
         ...quizState,
         answers: newAnswers,

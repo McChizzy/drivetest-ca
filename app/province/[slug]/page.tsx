@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { useParams } from "next/navigation"
-import { provinces, getQuestionsByProvince } from "@/lib/data"
+import { provinces } from "@/lib/data"
+import { getQuestionsByProvince } from "@/lib/questions"
 import type { Province, Question } from "@/lib/types"
 import Quiz from "@/components/quiz"
 import TestStart from "@/components/test-start"
