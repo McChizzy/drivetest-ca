@@ -8,7 +8,9 @@ import type { Province, Question } from "@/lib/types"
 import Quiz from "@/components/quiz"
 import TestStart from "@/components/test-start"
 import AlbertaTestInfo from "@/components/alberta-test-info"
+import OntarioTestInfo from "@/components/ontario-test-info"
 import SaskatchewanTestInfo from "@/components/saskatchewan-test-info"
+import GenericProvinceTestInfo from "@/components/generic-province-test-info"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -90,8 +92,12 @@ export default function ProvinceTestPage() {
             {/* Province-specific info */}
             {!hasStarted && (
               <>
+                {province.slug === "ontario" && <OntarioTestInfo />}
                 {province.slug === "alberta" && <AlbertaTestInfo />}
                 {province.slug === "saskatchewan" && <SaskatchewanTestInfo />}
+                {!['ontario', 'alberta', 'saskatchewan'].includes(province.slug) && (
+                  <GenericProvinceTestInfo provinceName={province.name} />
+                )}
               </>
             )}
           </div>

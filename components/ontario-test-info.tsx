@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, Target, AlertTriangle, ImageIcon } from "lucide-react"
+import { BookOpen, Target, CarFront, ImageIcon } from "lucide-react"
 
-export default function AlbertaTestInfo() {
+export default function OntarioTestInfo() {
   return (
     <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
       <Card>
@@ -12,9 +12,9 @@ export default function AlbertaTestInfo() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm">
-          <p>• Based on the official Alberta Driver's Handbook</p>
-          <p>• Covers traffic laws, road signs, and safe driving</p>
-          <p>• Focuses on Class 7 learner-style knowledge practice</p>
+          <p>• Built from Ontario handbook rules and sign topics</p>
+          <p>• Covers defensive driving, signs, and school-bus rules</p>
+          <p>• Focused on practical G1-style knowledge practice</p>
         </CardContent>
       </Card>
 
@@ -36,14 +36,14 @@ export default function AlbertaTestInfo() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-orange-600" />
-            Alberta Specifics
+            <CarFront className="h-5 w-5 text-orange-600" />
+            Ontario Focus
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm">
-          <p>• Class 7 prep starts with handbook rules and sign recognition</p>
-          <p>• School-zone and safe-driving basics are common test areas</p>
-          <p>• Learners should expect licensing and responsibility questions too</p>
+          <p>• G1 learners must know stop, yield, rail, and school-bus rules</p>
+          <p>• Defensive driving basics like visibility, space, and communication matter</p>
+          <p>• Sign recognition and right-of-way mistakes are common weak spots</p>
         </CardContent>
       </Card>
 
@@ -55,9 +55,9 @@ export default function AlbertaTestInfo() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-sm">
-          <p>• Sign-based questions support quick symbol recognition</p>
-          <p>• Explanations help reinforce handbook concepts right away</p>
-          <p>• Useful for repeat practice before the real knowledge test</p>
+          <p>• Sign-based questions help with quick recognition</p>
+          <p>• Designed for repetition so weak areas show up fast</p>
+          <p>• Best used alongside the Ontario driver handbook</p>
         </CardContent>
       </Card>
     </div>
