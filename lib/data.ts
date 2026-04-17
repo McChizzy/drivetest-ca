@@ -61,7 +61,7 @@ export const provinces: Province[] = [
     id: "9",
     name: "Newfoundland and Labrador",
     slug: "newfoundland-labrador",
-    image: "/newfoundland-coastal-cliffs.jpg",
+    image: "/new-brunswick-bay-fundy.jpg",
     description: "Practice Newfoundland and Labrador road sign and rule questions",
   },
   {
@@ -89,7 +89,7 @@ export const provinces: Province[] = [
     id: "13",
     name: "Nunavut",
     slug: "nunavut",
-    image: "/nunavut-arctic.jpg",
+    image: "/nwt-aurora.jpg",
     description: "Practice Nunavut road sign and safe-driving basics",
   },
 ]
