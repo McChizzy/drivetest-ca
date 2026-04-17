@@ -74,9 +74,9 @@ export default function Home() {
               onClick={() => handleProvinceClick(province)}
               onMouseEnter={() => setHoveredProvince(province.id)}
               onMouseLeave={() => setHoveredProvince(null)}
-              className="group cursor-pointer transform transition-all duration-300 hover:scale-105"
+              className="group cursor-pointer transform transition-all duration-300 hover:scale-105 h-full"
             >
-              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                 {/* Province Image */}
                 <div className="relative h-32 md:h-40 overflow-hidden">
                   <Image
@@ -101,8 +101,8 @@ export default function Home() {
                 </div>
 
                 {/* Province Info */}
-                <div className="p-4">
-                  <h3 className="font-semibold text-gray-900 dark:text-white text-sm md:text-base mb-1 line-clamp-2">
+                <div className="p-4 flex-1 flex flex-col min-h-[108px]">
+                  <h3 className="font-semibold text-gray-900 dark:text-white text-sm md:text-base mb-1 min-h-[2.75rem] line-clamp-2">
                     {province.name}
                   </h3>
                   <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
@@ -111,7 +111,7 @@ export default function Home() {
                 </div>
 
                 {/* Action Indicator */}
-                <div className="px-4 pb-4">
+                <div className="px-4 pb-4 mt-auto">
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                     <span>Ready to start</span>
                     <ChevronRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" />

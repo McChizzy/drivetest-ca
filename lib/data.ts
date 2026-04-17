@@ -54,14 +54,14 @@ export const provinces: Province[] = [
     id: "8",
     name: "New Brunswick",
     slug: "new-brunswick",
-    image: "/new-brunswick-bay-fundy.jpg",
+    image: "/nova-scotia-lighthouse.jpg",
     description: "New Brunswick driving test preparation",
   },
   {
     id: "9",
     name: "Newfoundland and Labrador",
     slug: "newfoundland-labrador",
-    image: "/new-brunswick-bay-fundy.jpg",
+    image: "/newfoundland-coastal-cliffs.jpg",
     description: "Practice Newfoundland and Labrador road sign and rule questions",
   },
   {
@@ -89,7 +89,7 @@ export const provinces: Province[] = [
     id: "13",
     name: "Nunavut",
     slug: "nunavut",
-    image: "/nwt-aurora.jpg",
+    image: "/yukon-mountains.jpg",
     description: "Practice Nunavut road sign and safe-driving basics",
   },
 ]
