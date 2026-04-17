@@ -21,6 +21,8 @@ export default function ProvinceTestPage() {
 
   const [province, setProvince] = useState<Province | null>(null)
   const [questions, setQuestions] = useState<Question[]>([])
+  const [selectedQuestions, setSelectedQuestions] = useState<Question[]>([])
+  const [testMode, setTestMode] = useState<"quick" | "full">("full")
   const [isLoading, setIsLoading] = useState(true)
   const [hasStarted, setHasStarted] = useState(false)
 
@@ -42,7 +44,9 @@ export default function ProvinceTestPage() {
     setIsLoading(false)
   }, [slug])
 
-  const handleStartTest = () => {
+  const handleStartTest = (mode: "quick" | "full") => {
+    setTestMode(mode)
+    setSelectedQuestions(mode === "quick" ? shuffledQuestions.slice(0, Math.min(10, shuffledQuestions.length)) : shuffledQuestions)
     setHasStarted(true)
   }
 
@@ -122,9 +126,9 @@ export default function ProvinceTestPage() {
           />
         ) : (
           <Quiz
-            questions={shuffledQuestions}
+            questions={selectedQuestions}
             provinceName={province.name}
-            timeLimit={timeLimit}
+            timeLimit={testMode === "quick" ? Math.max(10, Math.round(timeLimit * 0.6)) : timeLimit}
             onComplete={handleQuizComplete}
           />
         )}
