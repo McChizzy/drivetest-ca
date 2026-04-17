@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { handbookCoverageNote, provinces } from "@/lib/data"
 import type { Province } from "@/lib/types"
 import Image from "next/image"
-import { ChevronRight, MapPin, Clock, Target } from "lucide-react"
+import { ChevronRight, MapPin, Clock, Target, BadgeCheck } from "lucide-react"
 
 export default function Home() {
   const [hoveredProvince, setHoveredProvince] = useState<string | null>(null)
@@ -13,6 +13,22 @@ export default function Home() {
 
   const handleProvinceClick = (province: Province) => {
     router.push(`/province/${province.slug}`)
+  }
+
+  const getProvinceBadge = (slug: string) => {
+    if (["ontario", "alberta", "saskatchewan"].includes(slug)) {
+      return {
+        label: "Official",
+        className: "bg-emerald-500/90 text-white",
+        icon: true,
+      }
+    }
+
+    return {
+      label: "Practice",
+      className: "bg-slate-900/70 text-white",
+      icon: false,
+    }
   }
 
   return (
@@ -78,7 +94,7 @@ export default function Home() {
             >
               <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                 {/* Province Image */}
-                <div className="relative h-32 md:h-40 overflow-hidden">
+                <div className="relative h-32 md:h-40 overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <Image
                     src={province.image || "/placeholder.svg"}
                     alt={province.name}
@@ -86,6 +102,19 @@ export default function Home() {
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div className="absolute top-3 left-3">
+                    {(() => {
+                      const badge = getProvinceBadge(province.slug)
+                      return (
+                        <span
+                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold shadow-sm ${badge.className}`}
+                        >
+                          {badge.icon && <BadgeCheck className="h-3.5 w-3.5" />}
+                          {badge.label}
+                        </span>
+                      )
+                    })()}
+                  </div>
 
                   {/* Hover Overlay */}
                   <div
@@ -105,7 +134,7 @@ export default function Home() {
                   <h3 className="font-semibold text-gray-900 dark:text-white text-sm md:text-base mb-1 min-h-[2.75rem] line-clamp-2">
                     {province.name}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 min-h-[2.5rem] line-clamp-2">
                     {province.description}
                   </p>
                 </div>
@@ -113,7 +142,7 @@ export default function Home() {
                 {/* Action Indicator */}
                 <div className="px-4 pb-4 mt-auto">
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                    <span>Ready to start</span>
+                    <span>{["ontario", "alberta", "saskatchewan"].includes(province.slug) ? "Handbook-backed" : "Ready to start"}</span>
                     <ChevronRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
