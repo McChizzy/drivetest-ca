@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { provinces } from "@/lib/data"
+import { handbookCoverageNote, provinces } from "@/lib/data"
 import type { Province } from "@/lib/types"
 import Image from "next/image"
 import { ChevronRight, MapPin, Clock, Target } from "lucide-react"
@@ -45,7 +45,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                 <Target className="h-5 w-5 text-purple-600" />
-                <span>Official Handbook Based</span>
+                <span>Handbook-backed for ON, AB, SK</span>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function Home() {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Select Your Province</h2>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            Click on your province or territory to start your driving test
+            Start with your province or territory, with handbook-backed coverage now live for Ontario, Alberta, and Saskatchewan.
           </p>
         </div>
 
@@ -132,8 +132,7 @@ export default function Home() {
                   <div className="flex-1">
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">Featured: Alberta Driving Test</h3>
                     <p className="text-lg mb-6 text-blue-100">
-                      Comprehensive test based on the official Alberta Driver's Handbook. Features 15 detailed questions
-                      with explanations and stunning Rocky Mountain imagery.
+                      Handbook-backed Alberta practice covering core rules, licensing basics, and sign recognition with explanations.
                     </p>
                     <button
                       onClick={() => handleProvinceClick(provinces.find((p) => p.slug === "alberta")!)}
@@ -163,8 +162,7 @@ export default function Home() {
                   <div className="flex-1">
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">Featured: Saskatchewan Driving Test</h3>
                     <p className="text-lg mb-6 text-green-100">
-                      Based on the official SGI Driver's Handbook. Features 15 questions covering prairie driving
-                      conditions and Saskatchewan-specific traffic laws.
+                      Built from SGI handbook topics with stronger sign recognition, school-zone rules, and speed-law questions.
                     </p>
                     <button
                       onClick={() => handleProvinceClick(provinces.find((p) => p.slug === "saskatchewan")!)}
@@ -195,14 +193,14 @@ export default function Home() {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Not sure which test to take? Start with your home province.
+            Not sure which test to take? Start with your home province. {handbookCoverageNote}
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">
-              ✓ Official handbook questions
+              ✓ Handbook-backed ON, AB, SK
             </span>
             <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">
-              ✓ Instant feedback
+              ✓ Instant feedback and explanations
             </span>
             <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300">
               ✓ Timed practice
