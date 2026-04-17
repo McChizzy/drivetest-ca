@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { useParams } from "next/navigation"
 import { provinces } from "@/lib/data"
 import { getQuestionsByProvince } from "@/lib/questions"
@@ -23,6 +23,15 @@ export default function ProvinceTestPage() {
   const [questions, setQuestions] = useState<Question[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [hasStarted, setHasStarted] = useState(false)
+
+  const shuffledQuestions = useMemo(() => {
+    const copy = [...questions]
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[copy[i], copy[j]] = [copy[j], copy[i]]
+    }
+    return copy
+  }, [questions, hasStarted])
 
   useEffect(() => {
     const foundProvince = provinces.find((p) => p.slug === slug)
@@ -113,7 +122,7 @@ export default function ProvinceTestPage() {
           />
         ) : (
           <Quiz
-            questions={questions}
+            questions={shuffledQuestions}
             provinceName={province.name}
             timeLimit={timeLimit}
             onComplete={handleQuizComplete}
