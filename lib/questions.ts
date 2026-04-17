@@ -8,6 +8,7 @@ const getSaskatchewanQuestions = (): Question[] => [
     correctAnswer: 1,
     explanation: "SGI says a stop sign means you must come to a complete stop and not proceed until it is safe.",
     image: "/signs/stop-sign-canada.jpg",
+    categories: ["Signs", "Right-of-Way"],
   },
   {
     id: 3002,
@@ -16,6 +17,7 @@ const getSaskatchewanQuestions = (): Question[] => [
     correctAnswer: 1,
     explanation: "SGI's warning-sign section says a traffic signals ahead sign means be prepared to stop.",
     image: "/signs/traffic-signal-ahead.jpg",
+    categories: ["Signs", "Safety"],
   },
   {
     id: 3003,
@@ -32,6 +34,7 @@ const getSaskatchewanQuestions = (): Question[] => [
     correctAnswer: 2,
     explanation: "SGI states that in the absence of signs, the speed limit in Saskatchewan is 80 km/h.",
     image: "/signs/speed-limit-60.jpg",
+    categories: ["Speed", "Rules"],
   },
   {
     id: 3005,
@@ -40,6 +43,7 @@ const getSaskatchewanQuestions = (): Question[] => [
     correctAnswer: 2,
     explanation: "SGI says drivers must slow to 60 km/h when passing stopped tow trucks, service vehicles, or emergency vehicles with flashing lights.",
     image: "/signs/speed-limit-60.jpg",
+    categories: ["Speed", "Emergency Vehicles"],
   },
   {
     id: 3006,
@@ -138,6 +142,7 @@ const getAlbertaQuestions = (): Question[] => [
     correctAnswer: 1,
     explanation: "The Alberta school bus safety bulletin says school zones have a speed limit of 30 km/h in both urban and rural areas, unless otherwise posted.",
     image: "/signs/school-zone-sign.jpg",
+    categories: ["School Zone", "Speed"],
   },
   {
     id: 2006,
@@ -216,6 +221,7 @@ const getOntarioQuestions = (): Question[] => [
     correctAnswer: 2,
     explanation: "A stop sign means you must come to a complete stop at the proper stopping point and wait until the way is clear before entering the intersection.",
     image: "/signs/stop-sign.jpg",
+    categories: ["Signs", "Right-of-Way"],
   },
   {
     id: 1006,
@@ -224,6 +230,7 @@ const getOntarioQuestions = (): Question[] => [
     correctAnswer: 1,
     explanation: "A yield sign means you must let traffic in the intersection or close to it go first, stopping if necessary and proceeding only when the way is clear.",
     image: "/signs/yield-sign.jpg",
+    categories: ["Signs", "Right-of-Way"],
   },
   {
     id: 1007,
@@ -232,6 +239,7 @@ const getOntarioQuestions = (): Question[] => [
     correctAnswer: 1,
     explanation: "The school zone sign warns that you are coming to a school zone. Drivers should slow down, use extra caution and watch for children.",
     image: "/signs/school-zone-sign.jpg",
+    categories: ["Signs", "School Zone"],
   },
   {
     id: 1008,
@@ -256,6 +264,7 @@ const getOntarioQuestions = (): Question[] => [
     correctAnswer: 1,
     explanation: "Ontario's handbook includes the rule to stop for a school bus when its signals are flashing.",
     image: "/ontario-cn-tower.jpg",
+    categories: ["School Zone", "Safety"],
   },
 ]
 

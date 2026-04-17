@@ -13,6 +13,7 @@ export interface Question {
   correctAnswer: number
   explanation?: string
   image?: string
+  categories?: string[]
 }
 
 export interface QuizState {

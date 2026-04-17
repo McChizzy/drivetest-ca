@@ -201,6 +201,16 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
           )}
 
           <CardHeader className="pb-4">
+            <div className="flex flex-wrap gap-2 mb-3">
+              {currentQuestion.categories?.map((category) => (
+                <span
+                  key={category}
+                  className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-200 px-3 py-1 text-xs font-medium"
+                >
+                  {category}
+                </span>
+              ))}
+            </div>
             <CardTitle className="text-xl leading-relaxed">{currentQuestion.question}</CardTitle>
           </CardHeader>
 
