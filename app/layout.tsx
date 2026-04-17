@@ -8,6 +8,7 @@ import Navigation from "@/components/navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://v0-driving-test-app-phi.vercel.app"),
   title: "DriveTest CA - Canadian Driving Test Preparation",
   description:
     "Prepare for your Canadian driving test with province-specific practice tests for Alberta, Saskatchewan, and all Canadian provinces. Free online driving test prep with randomized questions and instant feedback.",
@@ -21,17 +22,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     siteName: "DriveTest CA",
+    images: [{ url: "/apple-icon.png", width: 180, height: 180, alt: "DriveTest CA icon" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "DriveTest CA - Canadian Driving Test Preparation",
     description: "Prepare for your Canadian driving test with comprehensive practice tests for all provinces.",
+    images: ["/apple-icon.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
-    generator: 'v0.app'
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+    shortcut: "/icon.png",
+  },
+  generator: "v0.app",
 }
 
 export default function RootLayout({

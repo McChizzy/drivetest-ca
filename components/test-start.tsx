@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Clock, BookOpen, Target, AlertCircle } from "lucide-react"
+import { Clock, BookOpen, Target, AlertCircle, RotateCcw, BarChart3 } from "lucide-react"
 
 interface TestStartProps {
   provinceName: string
@@ -40,19 +40,41 @@ export default function TestStart({ provinceName, questionCount, timeLimit, onSt
             </div>
           </div>
 
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
-              <div className="text-sm">
-                <p className="font-semibold text-yellow-800 dark:text-yellow-200 mb-1">Test Instructions:</p>
-                <ul className="space-y-1 text-yellow-700 dark:text-yellow-300">
-                  <li>• Read each question carefully</li>
-                  <li>• Select your answer, then click "Check Answer"</li>
-                  <li>• Review the explanation before moving to the next question</li>
-                  <li>• The timer will start when you click "Start Test"</li>
-                </ul>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
+                <div className="text-sm">
+                  <p className="font-semibold text-yellow-800 dark:text-yellow-200 mb-1">Test Instructions:</p>
+                  <ul className="space-y-1 text-yellow-700 dark:text-yellow-300">
+                    <li>• Read each question carefully</li>
+                    <li>• Select your answer, then click "Check Answer"</li>
+                    <li>• Review the explanation before moving to the next question</li>
+                    <li>• The timer will start when you click "Start Test"</li>
+                  </ul>
+                </div>
               </div>
             </div>
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+              <div className="flex items-start gap-3">
+                <BarChart3 className="h-5 w-5 text-blue-600 mt-0.5" />
+                <div className="text-sm">
+                  <p className="font-semibold text-blue-800 dark:text-blue-200 mb-1">What makes this useful:</p>
+                  <ul className="space-y-1 text-blue-700 dark:text-blue-300">
+                    <li>• Instant explanations after each question</li>
+                    <li>• Progress is saved locally for review</li>
+                    <li>• Missed questions can be revisited later</li>
+                    <li>• Retakes are fast, so repetition is easy</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+            <RotateCcw className="h-4 w-4" />
+            <span>You can retake the test and review missed questions after each session.</span>
           </div>
 
           <div className="text-center">
