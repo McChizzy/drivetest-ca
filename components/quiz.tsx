@@ -6,7 +6,7 @@ import { buildMissedQuestionRecords, buildQuizProgressSession, saveQuizProgressS
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { CheckCircle, XCircle, AlertCircle, Clock } from "lucide-react"
+import { CheckCircle, XCircle, AlertCircle, Clock, RotateCcw, Home, Tags } from "lucide-react"
 import Image from "next/image"
 
 interface QuizProps {
@@ -118,10 +118,20 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
     const percentage = Math.round((quizState.score / questions.length) * 100)
     const passed = percentage >= 80
     const timeUsed = timeLimit * 60 - quizState.timeRemaining
+    const missedQuestions = questions.filter((question, index) => quizState.answers[index] !== question.correctAnswer)
+    const missedCategoryCounts = missedQuestions.reduce<Record<string, number>>((acc, question) => {
+      question.categories?.forEach((category) => {
+        acc[category] = (acc[category] ?? 0) + 1
+      })
+      return acc
+    }, {})
+    const topMissedCategories = Object.entries(missedCategoryCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
 
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
-        <Card className="max-w-2xl mx-auto w-full">
+        <Card className="max-w-3xl mx-auto w-full">
           <CardHeader>
             <CardTitle className="text-center flex items-center justify-center gap-2">
               {passed ? (
@@ -129,11 +139,11 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
               ) : (
                 <XCircle className="h-8 w-8 text-red-500" />
               )}
-              {passed ? "Congratulations! You Passed!" : "Test Complete"}
+              {passed ? "Nice work, you passed" : "Test complete"}
             </CardTitle>
           </CardHeader>
-          <CardContent className="text-center space-y-6">
-            <div className="space-y-2">
+          <CardContent className="space-y-6">
+            <div className="text-center space-y-2">
               <div className="text-6xl font-bold text-blue-600 dark:text-blue-400">
                 {quizState.score}/{questions.length}
               </div>
@@ -141,16 +151,76 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
               <p className="text-lg text-gray-600 dark:text-gray-400">Time used: {formatTime(timeUsed)}</p>
               <p className="text-lg text-gray-600 dark:text-gray-400">
                 {passed
-                  ? "You've demonstrated good knowledge of driving rules!"
-                  : "You need 80% to pass. Review the handbook and try again."}
+                  ? "You've demonstrated solid knowledge across this practice set."
+                  : "You need 80% to pass. Focus on the weak spots below, then retry."}
               </p>
             </div>
 
-            <div className="space-y-2">
-              <Button onClick={() => window.location.reload()} className="mr-4">
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="rounded-xl border bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 p-4 text-center">
+                <div className="text-sm text-blue-700 dark:text-blue-300 mb-1">Correct</div>
+                <div className="text-3xl font-bold text-blue-900 dark:text-blue-100">{quizState.score}</div>
+              </div>
+              <div className="rounded-xl border bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 p-4 text-center">
+                <div className="text-sm text-red-700 dark:text-red-300 mb-1">Missed</div>
+                <div className="text-3xl font-bold text-red-900 dark:text-red-100">{missedQuestions.length}</div>
+              </div>
+              <div className="rounded-xl border bg-slate-50 dark:bg-slate-800/70 border-slate-200 dark:border-slate-700 p-4 text-center">
+                <div className="text-sm text-slate-700 dark:text-slate-300 mb-1">Result</div>
+                <div className="text-3xl font-bold text-slate-900 dark:text-slate-100">{passed ? "Pass" : "Retry"}</div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Tags className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Weak spot summary</h3>
+                </div>
+                {topMissedCategories.length > 0 ? (
+                  <div className="flex flex-wrap gap-2">
+                    {topMissedCategories.map(([category, count]) => (
+                      <span
+                        key={category}
+                        className="inline-flex items-center rounded-full bg-amber-50 text-amber-800 dark:bg-amber-900/30 dark:text-amber-200 px-3 py-1 text-sm font-medium"
+                      >
+                        {category} ({count})
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    No clear weak category stood out in this run. Nice coverage.
+                  </p>
+                )}
+              </div>
+
+              <div className="rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <AlertCircle className="h-5 w-5 text-orange-600" />
+                  <h3 className="font-semibold text-gray-900 dark:text-white">What to review next</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                  {missedQuestions.length === 0 ? (
+                    <li>• Keep practicing with a quick test to lock in recall speed.</li>
+                  ) : (
+                    <>
+                      <li>• Revisit the handbook sections tied to your missed topics.</li>
+                      <li>• Retake a quick test to check whether the weak spots improve.</li>
+                      <li>• Pay extra attention to signs, right-of-way, and speed-rule wording.</li>
+                    </>
+                  )}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button onClick={() => window.location.reload()} className="gap-2">
+                <RotateCcw className="h-4 w-4" />
                 Try Again
               </Button>
-              <Button variant="outline" onClick={() => (window.location.href = "/")}>
+              <Button variant="outline" onClick={() => (window.location.href = "/")} className="gap-2">
+                <Home className="h-4 w-4" />
                 Back to Home
               </Button>
             </div>
