@@ -54,7 +54,7 @@ export const provinces: Province[] = [
     id: "8",
     name: "New Brunswick",
     slug: "new-brunswick",
-    image: "/nova-scotia-lighthouse.jpg",
+    image: "/new-brunswick-fundy-cliffs.jpg",
     description: "New Brunswick driving test preparation",
   },
   {
@@ -89,7 +89,7 @@ export const provinces: Province[] = [
     id: "13",
     name: "Nunavut",
     slug: "nunavut",
-    image: "/yukon-mountains.jpg",
+    image: "/nunavut-ice-landscape.jpg",
     description: "Practice Nunavut road sign and safe-driving basics",
   },
 ]
