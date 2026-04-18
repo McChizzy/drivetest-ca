@@ -10,6 +10,7 @@ import TestStart from "@/components/test-start"
 import AlbertaTestInfo from "@/components/alberta-test-info"
 import OntarioTestInfo from "@/components/ontario-test-info"
 import SaskatchewanTestInfo from "@/components/saskatchewan-test-info"
+import BritishColumbiaTestInfo from "@/components/british-columbia-test-info"
 import GenericProvinceTestInfo from "@/components/generic-province-test-info"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
@@ -115,7 +116,8 @@ export default function ProvinceTestPage() {
                 {province.slug === "ontario" && <OntarioTestInfo />}
                 {province.slug === "alberta" && <AlbertaTestInfo />}
                 {province.slug === "saskatchewan" && <SaskatchewanTestInfo />}
-                {!['ontario', 'alberta', 'saskatchewan'].includes(province.slug) && (
+                {province.slug === "british-columbia" && <BritishColumbiaTestInfo />}
+                {!['ontario', 'alberta', 'saskatchewan', 'british-columbia'].includes(province.slug) && (
                   <GenericProvinceTestInfo provinceName={province.name} />
                 )}
               </>
