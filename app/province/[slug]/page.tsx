@@ -22,7 +22,7 @@ export default function ProvinceTestPage() {
   const [province, setProvince] = useState<Province | null>(null)
   const [questions, setQuestions] = useState<Question[]>([])
   const [selectedQuestions, setSelectedQuestions] = useState<Question[]>([])
-  const [testMode, setTestMode] = useState<"quick" | "full">("full")
+  const [testMode, setTestMode] = useState<"quick" | "full" | "review">("full")
   const [isLoading, setIsLoading] = useState(true)
   const [hasStarted, setHasStarted] = useState(false)
 
@@ -52,6 +52,13 @@ export default function ProvinceTestPage() {
 
   const handleQuizComplete = (score: number, timeUsed: number) => {
     console.log(`Quiz completed with score: ${score}, time used: ${timeUsed} seconds`)
+  }
+
+  const handleRetryMissedQuestions = (missedQuestions: Question[]) => {
+    if (missedQuestions.length === 0) return
+    setTestMode("review")
+    setSelectedQuestions(missedQuestions)
+    setHasStarted(true)
   }
 
   if (isLoading) {
@@ -128,8 +135,9 @@ export default function ProvinceTestPage() {
           <Quiz
             questions={selectedQuestions}
             provinceName={province.name}
-            timeLimit={testMode === "quick" ? Math.max(10, Math.round(timeLimit * 0.6)) : timeLimit}
+            timeLimit={testMode === "quick" ? Math.max(10, Math.round(timeLimit * 0.6)) : testMode === "review" ? Math.max(5, selectedQuestions.length * 2) : timeLimit}
             onComplete={handleQuizComplete}
+            onRetryMissed={handleRetryMissedQuestions}
           />
         )}
       </div>

@@ -14,9 +14,10 @@ interface QuizProps {
   provinceName: string
   timeLimit: number
   onComplete: (score: number, timeUsed: number) => void
+  onRetryMissed?: (questions: Question[]) => void
 }
 
-export default function Quiz({ questions, provinceName, timeLimit, onComplete }: QuizProps) {
+export default function Quiz({ questions, provinceName, timeLimit, onComplete, onRetryMissed }: QuizProps) {
   const [quizState, setQuizState] = useState<QuizState>({
     currentQuestion: 0,
     answers: [],
@@ -219,6 +220,12 @@ export default function Quiz({ questions, provinceName, timeLimit, onComplete }:
                 <RotateCcw className="h-4 w-4" />
                 Try Again
               </Button>
+              {missedQuestions.length > 0 && onRetryMissed && (
+                <Button variant="secondary" onClick={() => onRetryMissed(missedQuestions)} className="gap-2">
+                  <RotateCcw className="h-4 w-4" />
+                  Retry Missed Questions
+                </Button>
+              )}
               <Button variant="outline" onClick={() => (window.location.href = "/")} className="gap-2">
                 <Home className="h-4 w-4" />
                 Back to Home
