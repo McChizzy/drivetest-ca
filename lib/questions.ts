@@ -67,7 +67,6 @@ const getSaskatchewanQuestions = (): Question[] => [
     options: ["A permanent detour", "A reduced speed limit at all hours", "A school bus stop where you must stop for flashing bus lights", "A railway crossing used by buses"],
     correctAnswer: 2,
     explanation: "SGI's warning-sign section says the school bus stop ahead sign warns drivers to stop for a bus with flashing lights.",
-    image: "/signs/school-zone-sign.jpg",
   },
   {
     id: 3009,
@@ -83,7 +82,6 @@ const getSaskatchewanQuestions = (): Question[] => [
     options: ["Road work zone begins", "Road ends", "Two-way traffic starts", "Hidden intersection ahead"],
     correctAnswer: 1,
     explanation: "SGI identifies the checkerboard sign as a warning that the road ends.",
-    image: "/signs/do-not-enter.jpg",
   },
   {
     id: 3011,
@@ -111,7 +109,6 @@ const getAlbertaQuestions = (): Question[] => [
     options: ["Commercial Driver's Guide", "Driver's Guide: Cars and light trucks", "Rider's Guide", "School Bus Manual"],
     correctAnswer: 1,
     explanation: "Alberta directs Class 7 learners to study the Driver's Guide: Cars and light trucks before taking the knowledge test.",
-    image: "/alberta-rocky-mountains.jpg",
   },
   {
     id: 2002,
@@ -133,7 +130,6 @@ const getAlbertaQuestions = (): Question[] => [
     options: ["Only parallel parking skills", "Knowledge of Alberta's traffic laws", "Mechanical repair ability", "Highway driving speed"],
     correctAnswer: 1,
     explanation: "Alberta states that knowledge tests assess your knowledge of Alberta's traffic laws.",
-    image: "/alberta-rocky-mountains.jpg",
   },
   {
     id: 2005,
@@ -150,7 +146,6 @@ const getAlbertaQuestions = (): Question[] => [
     options: ["Mechanical inspections", "Driver education and training", "Winter tire certification", "A commercial licence exam"],
     correctAnswer: 1,
     explanation: "New drivers in Alberta are encouraged to take driver education and training from a licensed driver training school.",
-    image: "/alberta-banff-lake-louise.jpg",
   },
   {
     id: 2007,
@@ -158,7 +153,6 @@ const getAlbertaQuestions = (): Question[] => [
     options: ["Once a day", "Twice a day", "Once a week", "Unlimited times per day"],
     correctAnswer: 0,
     explanation: "Alberta's Class 7 learner's licence page says you can take the knowledge test once a day.",
-    image: "/alberta-rocky-mountains.jpg",
   },
   {
     id: 2008,
@@ -166,7 +160,6 @@ const getAlbertaQuestions = (): Question[] => [
     options: ["Commercial Driver's Guide", "Driver's Guide: Cars and light trucks", "Rider's Guide", "Air Brake Handbook"],
     correctAnswer: 2,
     explanation: "Alberta says the Rider's Guide is used as a supplement to the Driver's Guide: Cars and light trucks when preparing for the Class 6 knowledge test.",
-    image: "/alberta-rocky-mountains.jpg",
   },
   {
     id: 2009,
@@ -174,7 +167,6 @@ const getAlbertaQuestions = (): Question[] => [
     options: ["Rider's Guide", "Commercial Driver's Guide", "Class 7 quick guide", "School zone bulletin"],
     correctAnswer: 1,
     explanation: "The Commercial Driver's Guide is used as a supplement to the Driver's Guide: Cars and light trucks when preparing for commercial licence knowledge tests.",
-    image: "/alberta-rocky-mountains.jpg",
   },
   {
     id: 2010,
@@ -263,7 +255,6 @@ const getOntarioQuestions = (): Question[] => [
     options: ["Proceed carefully if you are in the opposite lane", "Stop for the school bus when signals are flashing", "Only stop in school zones", "Stop only if children are visible"],
     correctAnswer: 1,
     explanation: "Ontario's handbook includes the rule to stop for a school bus when its signals are flashing.",
-    image: "/ontario-cn-tower.jpg",
     categories: ["School Zone", "Safety"],
   },
 ]
@@ -407,7 +398,7 @@ const getGenericProvinceQuestions = (provinceName: string): Question[] => [
     question: `What is the speed limit in most urban areas in ${provinceName} unless otherwise posted?`,
     options: ["40 km/h", "50 km/h", "60 km/h", "70 km/h"],
     correctAnswer: 1,
-    explanation: `The default speed limit in urban areas in ${provinceName} is 50 km/h unless signs indicate otherwise.`,
+    explanation: `This is a general practice rule used in the app. Always confirm the exact default speed limit for ${provinceName} in the official driver handbook.`,
   },
   {
     id: 2,
@@ -428,7 +419,7 @@ const getGenericProvinceQuestions = (provinceName: string): Question[] => [
       "Never, just slow down",
     ],
     correctAnswer: 1,
-    explanation: "You must stop when a school bus has its red lights flashing and stop sign extended.",
+    explanation: "This is a general school-bus safety rule used for practice. Check your province handbook for exact stop requirements and roadway exceptions.",
   },
   {
     id: 4,
@@ -485,7 +476,7 @@ const getGenericProvinceQuestions = (provinceName: string): Question[] => [
       "Only when visibility is poor",
     ],
     correctAnswer: 1,
-    explanation: "Most provinces require headlights from 30 minutes before sunset to 30 minutes after sunrise.",
+    explanation: "This is a common Canadian rule used for practice, but exact headlight requirements can vary by province and conditions.",
   },
   {
     id: 11,

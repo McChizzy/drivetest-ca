@@ -19,7 +19,7 @@ export default function ContactPage() {
     e.preventDefault()
     // Handle form submission here
     console.log("Form submitted:", formData)
-    alert("Thank you for your message! We'll get back to you soon.")
+    alert("Thanks — your message was captured locally in this demo UI, but this form is not wired to a live support inbox yet.")
     setFormData({ name: "", email: "", subject: "", message: "" })
   }
 
@@ -33,27 +33,27 @@ export default function ContactPage() {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email Us",
-      content: "support@drivetestca.com",
-      description: "We typically respond within 24 hours",
+      title: "Question Feedback",
+      content: "Use the form on this page",
+      description: "Best for reporting wording, sign, or handbook issues",
     },
     {
       icon: Phone,
-      title: "Call Us",
-      content: "1-800-DRIVE-CA",
-      description: "Monday to Friday, 9 AM - 6 PM EST",
+      title: "Live Support",
+      content: "Not available yet",
+      description: "This project does not currently offer phone support",
     },
     {
       icon: MapPin,
-      title: "Address",
-      content: "123 Learning Street, Toronto, ON M5V 3A8",
-      description: "Visit our headquarters",
+      title: "Mailing Address",
+      content: "Not published",
+      description: "No public office address is listed for this project",
     },
     {
       icon: Clock,
-      title: "Support Hours",
-      content: "9 AM - 6 PM EST",
-      description: "Monday through Friday",
+      title: "Response Status",
+      content: "Manual review only",
+      description: "Replies are not automated or guaranteed yet",
     },
   ]
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
     {
       question: "How accurate are the practice tests?",
       answer:
-        "Our tests are based on official provincial handbooks and are regularly updated to reflect current regulations. Many users report that our questions are very similar to actual test questions.",
+        "Ontario, Alberta, and Saskatchewan currently use handbook-backed practice sets. British Columbia is handbook-aligned practice, and the remaining provinces use general practice sets that should be checked against the official handbook.",
     },
     {
       question: "Can I use this on my mobile device?",
@@ -70,12 +70,12 @@ export default function ContactPage() {
     {
       question: "Are the tests different for each province?",
       answer:
-        "Absolutely. Each province has unique driving laws and regulations, and our tests reflect these differences with province-specific questions and scenarios.",
+        "Not equally yet. Ontario, Alberta, and Saskatchewan have the strongest province-specific coverage right now, British Columbia is in progress, and the remaining provinces are still positioned as general practice.",
     },
     {
       question: "How often are questions updated?",
       answer:
-        "We review and update our question bank quarterly to ensure accuracy with the latest provincial driving regulations and handbook changes.",
+        "Question sets are updated as handbook-backed coverage expands and content issues are reviewed. If you spot a mismatch, use the feedback form so it can be corrected.",
     },
   ]
 
@@ -87,7 +87,7 @@ export default function ContactPage() {
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
             <p className="text-xl max-w-2xl mx-auto">
-              Have questions about our driving tests? Need technical support? We're here to help you succeed.
+              Have a question or want to report a content issue? Send feedback here and use the official handbook for final confirmation.
             </p>
           </div>
         </div>

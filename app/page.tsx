@@ -15,17 +15,25 @@ export default function Home() {
     router.push(`/province/${province.slug}`)
   }
 
-  const getProvinceBadge = (slug: string) => {
-    if (["ontario", "alberta", "saskatchewan"].includes(slug)) {
+  const getProvinceBadge = (province: Province) => {
+    if (province.coverageLevel === "handbook-backed") {
       return {
-        label: "Official",
+        label: "Handbook-backed",
         className: "bg-emerald-500/90 text-white",
         icon: true,
       }
     }
 
+    if (province.coverageLevel === "handbook-aligned") {
+      return {
+        label: "Handbook-aligned",
+        className: "bg-blue-600/90 text-white",
+        icon: false,
+      }
+    }
+
     return {
-      label: "Practice",
+      label: "General practice",
       className: "bg-slate-900/70 text-white",
       icon: false,
     }
@@ -104,7 +112,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   <div className="absolute top-3 left-3">
                     {(() => {
-                      const badge = getProvinceBadge(province.slug)
+                      const badge = getProvinceBadge(province)
                       return (
                         <span
                           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold shadow-sm ${badge.className}`}
@@ -142,7 +150,13 @@ export default function Home() {
                 {/* Action Indicator */}
                 <div className="px-4 pb-4 mt-auto">
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                    <span>{["ontario", "alberta", "saskatchewan"].includes(province.slug) ? "Handbook-backed" : "Ready to start"}</span>
+                    <span>
+                      {province.coverageLevel === "handbook-backed"
+                        ? "Handbook-backed"
+                        : province.coverageLevel === "handbook-aligned"
+                          ? "Handbook-aligned practice"
+                          : "General practice set"}
+                    </span>
                     <ChevronRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>

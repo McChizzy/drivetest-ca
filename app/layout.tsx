@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://v0-driving-test-app-phi.vercel.app"),
   title: "DriveTest CA - Canadian Driving Test Preparation",
   description:
-    "Prepare for your Canadian driving test with province-specific practice tests for Alberta, Saskatchewan, and all Canadian provinces. Free online driving test prep with randomized questions and instant feedback.",
+    "Prepare for your Canadian driving test with handbook-backed and general practice sets across Canadian provinces and territories. Free online driving test prep with randomized questions and instant feedback.",
   keywords:
     "Canadian driving test, driving exam, Alberta driving test, Saskatchewan driving test, SGI, driving practice, driving knowledge test",
   authors: [{ name: "DriveTest CA" }],
   openGraph: {
     title: "DriveTest CA - Canadian Driving Test Preparation",
     description:
-      "Prepare for your Canadian driving test with comprehensive practice tests for all provinces. Pass your driving exam with confidence.",
+      "Prepare for your Canadian driving test with handbook-backed and general practice sets across Canadian provinces and territories.",
     type: "website",
     locale: "en_CA",
     siteName: "DriveTest CA",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DriveTest CA - Canadian Driving Test Preparation",
-    description: "Prepare for your Canadian driving test with comprehensive practice tests for all provinces.",
+    description: "Prepare for your Canadian driving test with handbook-backed and general practice sets across Canadian provinces and territories.",
     images: ["/apple-icon.png"],
   },
   robots: {

@@ -13,7 +13,7 @@ import SaskatchewanTestInfo from "@/components/saskatchewan-test-info"
 import BritishColumbiaTestInfo from "@/components/british-columbia-test-info"
 import GenericProvinceTestInfo from "@/components/generic-province-test-info"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, AlertTriangle, BookOpenCheck, ShieldAlert } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ProvinceTestPage() {
@@ -85,6 +85,28 @@ export default function ProvinceTestPage() {
 
   const timeLimit = province.slug === "alberta" || province.slug === "saskatchewan" ? 30 : 20
 
+  const coverageBanner =
+    province.coverageLevel === "handbook-backed"
+      ? {
+          icon: BookOpenCheck,
+          className: "border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-900/60 dark:bg-emerald-950/30 dark:text-emerald-100",
+          title: "Handbook-backed practice",
+          body: "This question set is based on official handbook material, but it is still a practice tool and not the official government exam.",
+        }
+      : province.coverageLevel === "handbook-aligned"
+        ? {
+            icon: AlertTriangle,
+            className: "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-900/60 dark:bg-blue-950/30 dark:text-blue-100",
+            title: "Handbook-aligned practice",
+            body: "This set follows handbook topics and wording direction, but you should still study the official guide for final prep.",
+          }
+        : {
+            icon: ShieldAlert,
+            className: "border-amber-200 bg-amber-50 text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100",
+            title: "General practice set",
+            body: "This set is useful for drill practice, but exact rules and wording can vary by province. Verify details in the official handbook.",
+          }
+
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat relative"
@@ -109,6 +131,16 @@ export default function ProvinceTestPage() {
               {province.name} Driving Knowledge Test
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">{province.description}</p>
+
+            <div className={`mb-6 rounded-xl border p-4 ${coverageBanner.className}`}>
+              <div className="flex items-start gap-3">
+                <coverageBanner.icon className="mt-0.5 h-5 w-5 shrink-0" />
+                <div>
+                  <p className="font-semibold mb-1">{coverageBanner.title}</p>
+                  <p className="text-sm opacity-90">{coverageBanner.body}</p>
+                </div>
+              </div>
+            </div>
 
             {/* Province-specific info */}
             {!hasStarted && (

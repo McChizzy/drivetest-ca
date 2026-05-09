@@ -4,6 +4,7 @@ export interface Province {
   slug: string
   image: string
   description: string
+  coverageLevel?: "handbook-backed" | "handbook-aligned" | "general-practice"
 }
 
 export interface Question {
